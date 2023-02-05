@@ -4,8 +4,9 @@ import pydirectinput
 from random import random
 
 '''
-frisked is first pokemon, second pokemon has thief in first slot 
-and surf in second slot
+frisked is first pokemon, 
+second pokemon has thief in first slot and surf in second slot
+sweet scent in fourth key slot
 
 horde of 5 pokemon
 
@@ -171,6 +172,19 @@ def kill_all():
             dead = True
 
 
+def run():
+    pydirectinput.press('right')
+    print('right')
+    time.sleep(paying_attention_break())
+    pydirectinput.press('down')
+    print('down')
+    time.sleep(paying_attention_break())
+    pydirectinput.press('z')
+    print('z')
+    time.sleep(paying_attention_break())
+    time.sleep(run_away_break())
+
+
 def paying_attention_break():
     # timer between 0.25 seconds to 0.5 seconds
     return random() * 0.25 + 0.25
@@ -181,16 +195,47 @@ def attack_break():
     return random() * 5 + 35
 
 
-while True:
-    if pyautogui.locateOnScreen('battle_logs/frisked.png', grayscale=True, confidence=0.8) is not None:
-        print("Found item")
-        # random number from 3 to 20 seconds
-        time.sleep(random() * 12 + 3)
-        # change pokemon
-        change_pokemon()
-        # switch to attacking stage
-        thief()
-        # switch to killing all the pokemons
-        kill_all()
-        print("Done")
+def starting_battle_break():
+    # timer between 15 and 20 seconds before checking item
+    return random() * 5 + 15
+
+
+def run_away_break():
+    # timer between 2.25 to 5 seconds before inputting
+    return random() * 2.75 + 2.25
+
+
+def in_battle():
+    while True:
+        if pyautogui.locateOnScreen('battle_logs/frisked.png', grayscale=True, confidence=0.8) is not None:
+            print("Found item")
+            # random number from 3 to 20 seconds
+            time.sleep(random() * 12 + 3)
+            # change pokemon
+            change_pokemon()
+            # switch to attacking stage
+            thief()
+            # switch to killing all the pokemons
+            kill_all()
+            print("Done")
+            return True
+        else:
+            # did not find any items on pokemon
+            return False
+
+
+n = int(input("Number of times to use sweet scent: "))
+# wait for user to switch to pokemmo window
+time.sleep(2)
+for i in range(n):
+    # use sweet scent
+    pydirectinput.press('4')
+    time.sleep(starting_battle_break())
+    # check if item was found and if it was it will try to get it
+    found_item = in_battle()
+    if not found_item:
+        print("Not found")
+        # run away from battle
+        run()
+    else:
         break
