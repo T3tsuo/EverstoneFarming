@@ -209,8 +209,6 @@ def in_battle():
     while True:
         if pyautogui.locateOnScreen('battle_logs/frisked.png', grayscale=True, confidence=0.8) is not None:
             print("Found item")
-            # random number from 3 to 20 seconds
-            time.sleep(random() * 12 + 3)
             # change pokemon
             change_pokemon()
             # switch to attacking stage
@@ -230,6 +228,7 @@ time.sleep(2)
 for i in range(n):
     # use sweet scent
     pydirectinput.press('4')
+    print("4")
     time.sleep(starting_battle_break())
     # check if item was found and if it was it will try to get it
     found_item = in_battle()
