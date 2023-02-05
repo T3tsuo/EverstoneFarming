@@ -145,8 +145,8 @@ def kill_all():
         pydirectinput.press('z')
         print("z")
         time.sleep(paying_attention_break())
-        # select and attack random pokemon from 0-4
-        which_to_attack(round(random() * 4))
+        # select and attack the second pokemon
+        which_to_attack(1)
         # no sturdy
         sturdy = False
         # if pokemon flinches
