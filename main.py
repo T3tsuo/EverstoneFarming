@@ -4,7 +4,7 @@ import pydirectinput
 from random import random
 
 '''
-frisked is first pokemon, 
+first pokemon has frisk ability 
 second pokemon has thief in first slot and surf in second slot
 sweet scent in fourth key slot
 
@@ -13,6 +13,7 @@ horde of 5 pokemon
 takes into account of sturdy and flinch
 
 make window small enough so only 2 battle logs are shown at a time (reduce height of application)
+ex: window size 765 x 534
 '''
 
 
