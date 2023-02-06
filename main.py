@@ -238,4 +238,5 @@ for i in range(x):
         # run away from battle
         run()
     else:
-        break
+        print("Take the item from the pokemon that used thief.")
+        input("Enter anything once you are ready to continue: ")
