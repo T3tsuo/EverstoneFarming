@@ -224,9 +224,9 @@ def in_battle():
 
 
 x = int(input("Number of times to use sweet scent: "))
-# wait for user to switch to game window
-time.sleep(2)
 for i in range(x):
+    # wait for user to switch to game window
+    time.sleep(2)
     # use sweet scent
     pydirectinput.press('4')
     print("4")
