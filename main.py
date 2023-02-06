@@ -223,20 +223,21 @@ def in_battle():
             return False
 
 
-x = int(input("Number of times to use sweet scent: "))
-for i in range(x):
-    # wait for user to switch to game window
-    time.sleep(2)
-    # use sweet scent
-    pydirectinput.press('4')
-    print("4")
-    time.sleep(starting_battle_break())
-    # check if item was found and if it was it will try to get it
-    found_item = in_battle()
-    if not found_item:
-        print("Not found")
-        # run away from battle
-        run()
-    else:
-        print("Take the item from the pokemon that used thief.")
-        input("Enter anything once you are ready to continue: ")
+while True:
+    x = int(input("Number of times to use sweet scent: "))
+    for i in range(x):
+        # wait for user to switch to game window
+        time.sleep(2)
+        # use sweet scent
+        pydirectinput.press('4')
+        print("4")
+        time.sleep(starting_battle_break())
+        # check if item was found and if it was it will try to get it
+        found_item = in_battle()
+        if not found_item:
+            print("Not found")
+            # run away from battle
+            run()
+        elif i != x - 1:
+            print("Take the item from the pokemon that used thief.")
+            input("Enter anything once you are ready to continue: ")
