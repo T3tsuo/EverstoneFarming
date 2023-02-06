@@ -223,10 +223,10 @@ def in_battle():
             return False
 
 
-n = int(input("Number of times to use sweet scent: "))
-# wait for user to switch to pokemmo window
+x = int(input("Number of times to use sweet scent: "))
+# wait for user to switch to game window
 time.sleep(2)
-for i in range(n):
+for i in range(x):
     # use sweet scent
     pydirectinput.press('4')
     print("4")
