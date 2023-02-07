@@ -14,6 +14,7 @@ takes into account of sturdy and flinch
 
 make window small enough so only 1-2 battle logs are shown at a time (reduce height of application)
 ex: window size 765 x 534 (2 battle logs)
+    window size 765 x 515 (1 battle log)
 '''
 
 
