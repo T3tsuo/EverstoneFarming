@@ -12,6 +12,8 @@ horde of 5 pokemon
 
 takes into account of sturdy and flinch
 
+make game the second window so the program will switch to it
+
 make window small enough so only 1-2 battle logs are shown at a time (reduce height of application)
 ex: window size 765 x 534 (2 battle logs)
     window size 765 x 515 (1 battle log)
@@ -226,6 +228,12 @@ def in_battle():
 
 x = int(input("Number of times to use sweet scent: "))
 for i in range(x):
+    # switch to second window which should be the game
+    pyautogui.keyDown('alt')
+    time.sleep(.2)
+    pyautogui.press('tab')
+    time.sleep(.2)
+    pyautogui.keyUp('alt')
     # wait for user to switch to game window
     time.sleep(2)
     # use sweet scent
