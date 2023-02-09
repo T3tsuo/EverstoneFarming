@@ -226,14 +226,18 @@ def in_battle():
             return False
 
 
-x = int(input("Number of times to use sweet scent: "))
-for i in range(x):
-    # switch to second window which should be the game
+def switch_tabs():
     pyautogui.keyDown('alt')
     time.sleep(.2)
     pyautogui.press('tab')
     time.sleep(.2)
     pyautogui.keyUp('alt')
+
+
+x = int(input("Number of times to use sweet scent: "))
+# switch to second window which should be the game
+switch_tabs()
+for i in range(x):
     # wait for user to switch to game window
     time.sleep(2)
     # use sweet scent
@@ -249,3 +253,4 @@ for i in range(x):
     elif i != x - 1:
         print("Take the item from the pokemon that used thief.")
         input("Enter anything once you are ready to continue: ")
+        switch_tabs()
