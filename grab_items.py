@@ -8,7 +8,11 @@ from random import random
 '''
 first pokemon has frisk ability 
 second pokemon (Quagsire) has thief in first slot and surf in second slot
-sweet scent in fourth key slot
+pokemon with sweet scent anywhere
+sweet scent in fourth key slot, fly in 5th key slot
+
+best if as many pokemons as you can uses exp. shares to clear battle logs quicker
+by gaining exp so program doesn't detect 
 
 horde of 5 pokemon
 
@@ -180,7 +184,7 @@ def kill_all():
             dead = True
 
 
-def run():
+def run_away():
     pydirectinput.press('right')
     print('right')
     time.sleep(paying_attention_break())
@@ -191,6 +195,38 @@ def run():
     print('z')
     time.sleep(paying_attention_break())
     time.sleep(run_away_break())
+
+
+def fly_away():
+    left = False
+    while left is False:
+        # once left the cave
+        if pyautogui.locateOnScreen('location/iron_island_entrance.png', grayscale=True, confidence=0.8) is not None:
+            # wait for screen to change
+            time.sleep(paying_attention_break())
+            # press fly
+            pydirectinput.press('5')
+            print("5")
+            time.sleep(paying_attention_break())
+            while left is False:
+                # find the region where canalave city is near
+                if pyautogui.locateOnScreen('location/near_canalave_city.png', grayscale=True, confidence=0.8):
+                    # grab the region where canalave city is near
+                    location = pyautogui.locateOnScreen('location/'
+                                                        'near_canalave_city.png', grayscale=True, confidence=0.8)
+                    # grab the exact region
+                    location = pyautogui.locateOnScreen('location/exact_canalave_city.png'
+                                                        , region=location, grayscale=True, confidence=0.8)
+                    pyautogui.moveTo(location.left + random() * location.width
+                                     , location.top + random() * location.height)
+                    # fly to city
+                    pydirectinput.click(clicks=2)
+                    left = True
+
+        else:
+            # continue to leave the cave until you leave
+            pydirectinput.press('down')
+            print("down")
 
 
 def paying_attention_break():
@@ -233,9 +269,9 @@ def in_battle():
 def take_item():
     item_taken = False
     while item_taken is False:
-        if pyautogui.locateOnScreen('battle_logs/quagsire.png', grayscale=True, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen('location/quagsire.png', grayscale=True, confidence=0.8) is not None:
             # grab location of image
-            location = pyautogui.locateOnScreen('battle_logs/quagsire.png', grayscale=True, confidence=0.8)
+            location = pyautogui.locateOnScreen('location/quagsire.png', grayscale=True, confidence=0.8)
             # click randomly on the box
             pyautogui.moveTo(location.left + random() * location.width, location.top + random() * location.height)
             pydirectinput.click()
@@ -244,10 +280,9 @@ def take_item():
             time.sleep(paying_attention_break())
             while item_taken is False:
                 # do the same thing for everstone
-                if pyautogui.locateOnScreen('battle_logs/'
-                                            'take_everstone.png', grayscale=True, confidence=0.8) is not None:
-                    location = pyautogui.locateOnScreen('battle_logs/'
-                                                        'take_everstone.png', grayscale=True, confidence=0.8)
+                if pyautogui.locateOnScreen('location/take_everstone.png', grayscale=True, confidence=0.8):
+                    location = pyautogui.locateOnScreen('location/take_everstone.png', grayscale=True,
+                                                        confidence=0.8)
                     print("Taking everstone")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
@@ -255,11 +290,10 @@ def take_item():
                     print("click")
                     item_taken = True
                     time.sleep(paying_attention_break())
-                # same thing for hard stone
-                elif pyautogui.locateOnScreen('battle_logs/'
-                                              'take_hard_stone.png', grayscale=True, confidence=0.8) is not None:
-                    location = pyautogui.locateOnScreen('battle_logs/'
-                                                        'take_hard_stone.png', grayscale=True, confidence=0.8)
+                if pyautogui.locateOnScreen('location/take_hard_stone.png', grayscale=True, confidence=0.8):
+                    # same thing for hard stone
+                    location = pyautogui.locateOnScreen('location/take_hard_stone.png', grayscale=True,
+                                                        confidence=0.8)
                     print("Taking hard stone")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
@@ -277,22 +311,22 @@ def switch_tabs():
     pyautogui.keyUp('alt')
 
 
-x = int(input("Number of times to use sweet scent: "))
-# switch to second window which should be the game
-switch_tabs()
-for i in range(x):
-    # wait for user to switch to game window
-    time.sleep(2)
-    # use sweet scent
-    pydirectinput.press('4')
-    print("4")
-    time.sleep(starting_battle_break())
-    # check if item was found and if it was it will try to get it
-    found_item = in_battle()
-    if not found_item:
-        print("Not found")
-        # run away from battle
-        run()
-    else:
-        # if item is stolen then take it off of your pokemon
-        take_item()
+def run(x):
+    for i in range(x):
+        # wait for user to switch to game window
+        time.sleep(2)
+        # use sweet scent
+        pydirectinput.press('4')
+        print("4")
+        time.sleep(starting_battle_break())
+        # check if item was found and if it was it will try to get it
+        found_item = in_battle()
+        if not found_item:
+            print("Not found")
+            # run away from battle
+            run_away()
+        else:
+            # if item is stolen then take it off of your pokemon
+            take_item()
+    # when all of sweet scent is used then leave to pokecenter
+    fly_away()
