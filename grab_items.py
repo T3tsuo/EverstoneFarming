@@ -3,6 +3,8 @@ import pyautogui
 import pydirectinput
 from random import random
 
+# this program grabs items and then fly's to go restore pokemon pp
+
 '''
 first pokemon has frisk ability 
 second pokemon (Quagsire) has thief in first slot and surf in second slot
@@ -14,9 +16,11 @@ takes into account of sturdy and flinch
 
 make game the second window so the program will switch to it
 
-make window small enough so only 1-2 battle logs are shown at a time (reduce height of application)
+make window small enough so only 2 battle logs are shown at a time (reduce height of application)
 ex: window size 765 x 534 (2 battle logs)
-    window size 765 x 515 (1 battle log)
+you can change this in the main directory of pokemmo:
+PokeMMO/config/main.properties client.graphics.height=534
+PokeMMO/config/main.properties client.graphics.width=765
 '''
 
 
