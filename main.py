@@ -5,7 +5,7 @@ from random import random
 
 '''
 first pokemon has frisk ability 
-second pokemon has thief in first slot and surf in second slot
+second pokemon (Quagsire) has thief in first slot and surf in second slot
 sweet scent in fourth key slot
 
 horde of 5 pokemon
@@ -226,6 +226,45 @@ def in_battle():
             return False
 
 
+def take_item():
+    item_taken = False
+    while item_taken is False:
+        if pyautogui.locateOnScreen('battle_logs/quagsire.png', grayscale=True, confidence=0.8) is not None:
+            # grab location of image
+            location = pyautogui.locateOnScreen('battle_logs/quagsire.png', grayscale=True, confidence=0.8)
+            # click randomly on the box
+            pyautogui.moveTo(location.left + random() * location.width, location.top + random() * location.height)
+            pydirectinput.click()
+            print("click")
+            # user paying attention reaction time
+            time.sleep(paying_attention_break())
+            while item_taken is False:
+                # do the same thing for everstone
+                if pyautogui.locateOnScreen('battle_logs/'
+                                            'take_everstone.png', grayscale=True, confidence=0.8) is not None:
+                    location = pyautogui.locateOnScreen('battle_logs/'
+                                                        'take_everstone.png', grayscale=True, confidence=0.8)
+                    print("Taking everstone")
+                    pyautogui.moveTo(location.left + random() * location.width,
+                                     location.top + random() * location.height)
+                    pydirectinput.click()
+                    print("click")
+                    item_taken = True
+                    time.sleep(paying_attention_break())
+                # same thing for hard stone
+                elif pyautogui.locateOnScreen('battle_logs/'
+                                              'take_hard_stone.png', grayscale=True, confidence=0.8) is not None:
+                    location = pyautogui.locateOnScreen('battle_logs/'
+                                                        'take_hard_stone.png', grayscale=True, confidence=0.8)
+                    print("Taking hard stone")
+                    pyautogui.moveTo(location.left + random() * location.width,
+                                     location.top + random() * location.height)
+                    pydirectinput.click()
+                    print("click")
+                    item_taken = True
+                    time.sleep(paying_attention_break())
+
+
 def switch_tabs():
     pyautogui.keyDown('alt')
     time.sleep(.2)
@@ -250,7 +289,6 @@ for i in range(x):
         print("Not found")
         # run away from battle
         run()
-    elif i != x - 1:
-        print("Take the item from the pokemon that used thief.")
-        input("Enter anything once you are ready to continue: ")
-        switch_tabs()
+    else:
+        # if item is stolen then take it off of your pokemon
+        take_item()
