@@ -3,29 +3,7 @@ import pyautogui
 import pydirectinput
 from random import random
 
-# this program grabs items and then fly's to go restore pokemon pp
-
-'''
-first pokemon has frisk ability 
-second pokemon (Quagsire) has thief in first slot and surf in second slot
-pokemon with sweet scent anywhere
-sweet scent in fourth key slot, fly in 5th key slot
-
-best if as many pokemons as you can uses exp. shares to clear battle logs quicker
-by gaining exp so program doesn't detect 
-
-horde of 5 pokemon
-
-takes into account of sturdy and flinch
-
-make game the second window so the program will switch to it
-
-make window small enough so only 2 battle logs are shown at a time (reduce height of application)
-ex: window size 765 x 534 (2 battle logs)
-you can change this in the main directory of pokemmo:
-PokeMMO/config/main.properties client.graphics.height=534
-PokeMMO/config/main.properties client.graphics.width=765
-'''
+import random_breaks
 
 
 def change_pokemon():
@@ -33,19 +11,19 @@ def change_pokemon():
     pydirectinput.press('down')
     print("down")
     # human input break
-    time.sleep(paying_attention_break())
+    time.sleep(random_breaks.paying_attention_break())
     pydirectinput.press('z')
     print("z")
-    time.sleep(paying_attention_break())
+    time.sleep(random_breaks.paying_attention_break())
     # following pokemon
     pydirectinput.press('right')
     print("right")
-    time.sleep(paying_attention_break())
+    time.sleep(random_breaks.paying_attention_break())
     # select the pokemon
     pydirectinput.press('z')
     print("z")
-    time.sleep(paying_attention_break())
-    time.sleep(attack_break())
+    time.sleep(random_breaks.paying_attention_break())
+    time.sleep(random_breaks.attack_break())
     print("time to attack")
 
 
@@ -57,28 +35,28 @@ def thief():
     while stole_item is False and select_pokemon < 5:
         # press fight
         pydirectinput.press('z')
-        print("z")
-        time.sleep(paying_attention_break())
+        print("Fight")
+        time.sleep(random_breaks.paying_attention_break())
         # press thief (first move)
         pydirectinput.press('z')
-        print("z")
-        time.sleep(paying_attention_break())
+        print("Thief")
+        time.sleep(random_breaks.paying_attention_break())
         # select and attack specific pokemon
         which_to_attack(select_pokemon)
         # if pokemon flinches
         flinched = False
         # wait for entire attack break while checking if thief took an item
-        seconds = attack_break()
+        seconds = random_breaks.attack_break()
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if item is found
-            if pyautogui.locateOnScreen('battle_logs/stole.png', grayscale=True, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen('battle_logs/stole.png', confidence=0.8) is not None:
                 stole_item = True
                 print("Stole item")
                 # if the item is found early then wait the remaining time before exiting
                 time.sleep(end_time - time.time())
                 break
-            if pyautogui.locateOnScreen('battle_logs/flinched.png', grayscale=True, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen('battle_logs/flinched.png', confidence=0.8) is not None:
                 flinched = True
                 print("Flinched")
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
@@ -93,53 +71,41 @@ def which_to_attack(n):
     if n == 0:
         # go down to select the first pokemon
         pydirectinput.press('down')
-        print("down")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         # select it
         pydirectinput.press("z")
-        print("z")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
     elif n == 1:
         # select the second pokemon
         pydirectinput.press("z")
-        print("z")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
     elif n == 2:
         # go down to select the third pokemon
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         # select it
         pydirectinput.press("z")
-        print("z")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
     elif n == 3:
         # go down to select the fourth pokemon
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         # select it
         pydirectinput.press("z")
-        print("z")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
     elif n == 4:
         # go down to select the fifth pokemon
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         pydirectinput.press('down')
-        print("down")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         # select it
         pydirectinput.press("z")
-        print("z")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
 
 
 def kill_all():
@@ -147,16 +113,15 @@ def kill_all():
     while not dead:
         # press fight
         pydirectinput.press('z')
-        print("z")
-        time.sleep(paying_attention_break())
+        print("Fight")
+        time.sleep(random_breaks.paying_attention_break())
         # go to second move
         pydirectinput.press('right')
-        print("right")
-        time.sleep(paying_attention_break())
+        time.sleep(random_breaks.paying_attention_break())
         # press surf (second move)
         pydirectinput.press('z')
-        print("z")
-        time.sleep(paying_attention_break())
+        print("Surf")
+        time.sleep(random_breaks.paying_attention_break())
         # select and attack the second pokemon
         which_to_attack(1)
         # no sturdy
@@ -164,17 +129,17 @@ def kill_all():
         # if pokemon flinches
         flinched = False
         # wait for entire attack break while checking if thief took an item
-        seconds = attack_break()
+        seconds = random_breaks.attack_break()
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if item is found
-            if pyautogui.locateOnScreen('battle_logs/sturdy.png', grayscale=True, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen('battle_logs/sturdy.png', confidence=0.8) is not None:
                 sturdy = True
                 print("Sturdy")
                 # if the item is found early then wait the remaining time before exiting
                 time.sleep(end_time - time.time())
                 break
-            if pyautogui.locateOnScreen('battle_logs/flinched.png', grayscale=True, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen('battle_logs/flinched.png', confidence=0.8) is not None:
                 flinched = True
                 print("Flinched")
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
@@ -186,72 +151,50 @@ def kill_all():
 
 def run_away():
     pydirectinput.press('right')
-    print('right')
-    time.sleep(paying_attention_break())
+    time.sleep(random_breaks.paying_attention_break())
     pydirectinput.press('down')
-    print('down')
-    time.sleep(paying_attention_break())
+    time.sleep(random_breaks.paying_attention_break())
     pydirectinput.press('z')
-    print('z')
-    time.sleep(paying_attention_break())
-    time.sleep(run_away_break())
+    print('Run away')
+    time.sleep(random_breaks.paying_attention_break())
+    time.sleep(random_breaks.run_away_break())
 
 
 def fly_away():
     left = False
     while left is False:
         # once left the cave
-        if pyautogui.locateOnScreen('location/iron_island_entrance.png', grayscale=True, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen('location/iron_island_entrance.png', confidence=0.8) is not None:
             # wait for screen to change
-            time.sleep(paying_attention_break())
+            time.sleep(random_breaks.paying_attention_break())
             # press fly
             pydirectinput.press('5')
-            print("5")
-            time.sleep(paying_attention_break())
+            print("Fly")
+            time.sleep(random_breaks.paying_attention_break())
             while left is False:
                 # find the region where canalave city is near
-                if pyautogui.locateOnScreen('location/near_canalave_city.png', grayscale=True, confidence=0.8):
+                if pyautogui.locateOnScreen('location/near_canalave_city.png', confidence=0.8):
                     # grab the region where canalave city is near
                     location = pyautogui.locateOnScreen('location/'
-                                                        'near_canalave_city.png', grayscale=True, confidence=0.8)
+                                                        'near_canalave_city.png', confidence=0.8)
                     # grab the exact region
                     location = pyautogui.locateOnScreen('location/exact_canalave_city.png'
-                                                        , region=location, grayscale=True, confidence=0.8)
+                                                        , region=location, confidence=0.8)
                     pyautogui.moveTo(location.left + random() * location.width
                                      , location.top + random() * location.height)
                     # fly to city
                     pydirectinput.click(clicks=2)
                     left = True
+                    time.sleep(random_breaks.run_away_break())
 
         else:
             # continue to leave the cave until you leave
             pydirectinput.press('down')
-            print("down")
-
-
-def paying_attention_break():
-    # timer between 0.25 seconds to 0.5 seconds
-    return random() * 0.25 + 0.25
-
-
-def attack_break():
-    # timer between 32 and 37 seconds for waiting out a horde attack
-    return random() * 5 + 32
-
-
-def starting_battle_break():
-    # timer between 15 and 20 seconds before checking item
-    return random() * 5 + 15
-
-
-def run_away_break():
-    # timer between 2.25 to 5 seconds before inputting
-    return random() * 2.75 + 2.25
 
 
 def in_battle():
     while True:
-        if pyautogui.locateOnScreen('battle_logs/frisked.png', grayscale=True, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen('battle_logs/frisked.png', confidence=0.8) is not None:
             print("Found item")
             # change pokemon
             change_pokemon()
@@ -269,38 +212,36 @@ def in_battle():
 def take_item():
     item_taken = False
     while item_taken is False:
-        if pyautogui.locateOnScreen('location/quagsire.png', grayscale=True, confidence=0.8) is not None:
+        if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
             # grab location of image
-            location = pyautogui.locateOnScreen('location/quagsire.png', grayscale=True, confidence=0.8)
+            location = pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8)
             # click randomly on the box
             pyautogui.moveTo(location.left + random() * location.width, location.top + random() * location.height)
             pydirectinput.click()
-            print("click")
+            print("Quagsire Selected")
             # user paying attention reaction time
-            time.sleep(paying_attention_break())
+            time.sleep(random_breaks.paying_attention_break())
             while item_taken is False:
                 # do the same thing for everstone
-                if pyautogui.locateOnScreen('location/take_everstone.png', grayscale=True, confidence=0.8):
-                    location = pyautogui.locateOnScreen('location/take_everstone.png', grayscale=True,
+                if pyautogui.locateOnScreen('location/take_everstone.png', confidence=0.8):
+                    location = pyautogui.locateOnScreen('location/take_everstone.png',
                                                         confidence=0.8)
-                    print("Taking everstone")
+                    print("Taking Everstone")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
                     pydirectinput.click()
-                    print("click")
                     item_taken = True
-                    time.sleep(paying_attention_break())
-                if pyautogui.locateOnScreen('location/take_hard_stone.png', grayscale=True, confidence=0.8):
+                    time.sleep(random_breaks.paying_attention_break())
+                if pyautogui.locateOnScreen('location/take_hard_stone.png', confidence=0.8):
                     # same thing for hard stone
-                    location = pyautogui.locateOnScreen('location/take_hard_stone.png', grayscale=True,
+                    location = pyautogui.locateOnScreen('location/take_hard_stone.png',
                                                         confidence=0.8)
-                    print("Taking hard stone")
+                    print("Taking Hard Stone")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
                     pydirectinput.click()
-                    print("click")
                     item_taken = True
-                    time.sleep(paying_attention_break())
+                    time.sleep(random_breaks.paying_attention_break())
 
 
 def switch_tabs():
@@ -313,12 +254,12 @@ def switch_tabs():
 
 def run(x):
     for i in range(x):
-        # wait for user to switch to game window
-        time.sleep(2)
+        # wait for program to switch to game window
+        time.sleep(random_breaks.run_away_break())
         # use sweet scent
         pydirectinput.press('4')
-        print("4")
-        time.sleep(starting_battle_break())
+        print("Sweet Scent")
+        time.sleep(random_breaks.starting_battle_break())
         # check if item was found and if it was it will try to get it
         found_item = in_battle()
         if not found_item:
