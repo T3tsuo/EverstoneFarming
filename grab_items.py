@@ -9,19 +9,16 @@ import random_breaks
 def change_pokemon():
     # go to pokemon
     pydirectinput.press('down')
-    print("down")
     # human input break
     time.sleep(random_breaks.paying_attention_break())
     pydirectinput.press('z')
-    print("z")
     time.sleep(random_breaks.paying_attention_break())
     # following pokemon
     pydirectinput.press('right')
-    print("right")
     time.sleep(random_breaks.paying_attention_break())
     # select the pokemon
     pydirectinput.press('z')
-    print("z")
+    print("Change Pokemon")
     time.sleep(random_breaks.paying_attention_break())
     time.sleep(random_breaks.attack_break())
     print("time to attack")
