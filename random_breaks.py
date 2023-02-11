@@ -2,8 +2,8 @@ from random import random
 
 
 def into_cave():
-    # goes into the cave and 1 tile into the cave in between 2.09 seconds to 2.11 seconds
-    return random() * 0.02 + 2.09
+    # goes into the cave and 1 tile into the cave in between 2.1 seconds to 2.105 seconds
+    return random() * 0.005 + 2.1
 
 
 def below_cave():

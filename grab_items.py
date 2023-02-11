@@ -121,29 +121,15 @@ def kill_all():
         time.sleep(random_breaks.paying_attention_break())
         # select and attack the second pokemon
         which_to_attack(1)
-        # no sturdy
-        sturdy = False
-        # if pokemon flinches
-        flinched = False
         # wait for entire attack break while checking if thief took an item
         seconds = random_breaks.attack_break()
         end_time = time.time() + seconds
         while time.time() < end_time:
-            # if item is found
-            if pyautogui.locateOnScreen('battle_logs/sturdy.png', confidence=0.8) is not None:
-                sturdy = True
-                print("Sturdy")
-                # if the item is found early then wait the remaining time before exiting
-                time.sleep(end_time - time.time())
+            # if battle is done
+            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
+                # then they are dead
+                dead = True
                 break
-            if pyautogui.locateOnScreen('battle_logs/flinched.png', confidence=0.8) is not None:
-                flinched = True
-                print("Flinched")
-                # if the pokemon flinched then wait the remaining time of the turn before exiting
-                time.sleep(end_time - time.time())
-                break
-        if not sturdy and not flinched:
-            dead = True
 
 
 def run_away():
@@ -197,9 +183,11 @@ def in_battle():
             change_pokemon()
             # switch to attacking stage
             thief()
-            # switch to killing all the pokemons
-            kill_all()
-            print("Done")
+            # switch to killing all the pokemons if battle isn't done
+            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is None:
+                print("Kill All")
+                kill_all()
+            print("Battle End")
             return True
         else:
             # did not find any items on pokemon
