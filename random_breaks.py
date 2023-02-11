@@ -37,8 +37,8 @@ def left_of_city():
 
 
 def south_of_city():
-    # go south for between 2.2 seconds to 2.25
-    return random() * 0.05 + 2.2
+    # go south for between 2.2 seconds to 2.24
+    return random() * 0.04 + 2.2
 
 
 def right_to_sailor():
