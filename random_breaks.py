@@ -32,8 +32,8 @@ def leave_building():
 
 
 def left_of_city():
-    # go left for between 1.85 seconds to 2
-    return random() * 0.15 + 1.85
+    # go left for between 1.9 seconds to 2
+    return random() * 0.1 + 1.9
 
 
 def south_of_city():
