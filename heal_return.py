@@ -40,7 +40,7 @@ def leave_building():
 def go_to_sailor():
     # hop on bike
     pydirectinput.press("1")
-    print("1")
+    print("Bicycle")
     time.sleep(random_breaks.input_break())
     # go left
     pydirectinput.keyDown("left")
