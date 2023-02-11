@@ -12,7 +12,8 @@ pokemon with sweet scent anywhere
 bike in 1st key slot, sweet scent in fourth key slot, fly in 5th key slot
 
 best if as many pokemons as you can uses exp. shares to clear battle logs quicker
-by gaining exp so program doesn't detect 
+by gaining exp so program doesn't read old battle logs
+(using Kricketot at least level 17 is ideal because it stop learning new moves)
 
 make game the second window so the program will switch to it
 
