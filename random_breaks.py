@@ -1,9 +1,13 @@
 from random import random
 
 
+def inside_cave():
+    # waits inside of cave for 1.5 second to 2 seconds
+    return random() * 0.5 + 1.5
+
 def into_cave():
-    # goes into the cave and 1 tile into the cave in between 2.1 seconds to 2.105 seconds
-    return random() * 0.005 + 2.1
+    # goes into the cave and 1 tile into the cave in between 1.4 seconds to 1.6 seconds
+    return random() * 0.2 + 1.4
 
 
 def below_cave():
@@ -27,8 +31,8 @@ def wait_to_iron_island():
 
 
 def leave_building():
-    # 1.8 seconds to 2.1 seconds to leave building
-    return random() * 0.3 + 1.8
+    # 1.9 seconds to 2.1 seconds to leave building
+    return random() * 0.2 + 1.9
 
 
 def left_of_city():
@@ -42,8 +46,8 @@ def south_of_city():
 
 
 def right_to_sailor():
-    # go towards sailor for 0.8 to 0.95 seconds
-    return random() * 0.15 + 0.8
+    # go towards sailor for 0.9 to 1.05 seconds
+    return random() * 0.15 + 0.9
 
 
 def paying_attention_break():

@@ -4,11 +4,10 @@ import pydirectinput
 
 import random_breaks
 
-
 def go_to_nurse():
     at_nurse = False
     while at_nurse is False:
-        if pyautogui.locateOnScreen('location/at_nurse_desk.png', confidence=0.8):
+        if pyautogui.locateOnScreen('location/at_nurse_desk.png', confidence=0.8) is not None:
             pydirectinput.keyUp("up")
             print("At Nurse")
             at_nurse = True
@@ -34,7 +33,8 @@ def leave_building():
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
     print("Left building")
-    time.sleep(random_breaks.paying_attention_break())
+    # wait 1.5 - 2 seconds
+    time.sleep(random_breaks.inside_cave())
 
 
 def go_to_sailor():
@@ -94,6 +94,12 @@ def go_into_cave():
     time.sleep(random_breaks.into_cave())
     pydirectinput.keyUp("up")
     print("Inside of Cave")
+    time.sleep(random_breaks.inside_cave())
+    pydirectinput.press("right")
+    time.sleep(random_breaks.paying_attention_break())
+    pydirectinput.keyDown("up")
+    time.sleep(random_breaks.adjust_to_stairs())
+    pydirectinput.keyUp("up")
     # break
     time.sleep(random_breaks.input_break())
 
