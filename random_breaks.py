@@ -35,6 +35,10 @@ def leave_building():
     return random() * 0.2 + 1.9
 
 
+def to_nurse():
+    # run up to nurse time interval 3 seconds to 3.1 seconds
+    return random() * 0.1 + 3
+
 def left_of_city():
     # go left for between 1.9 seconds to 2
     return random() * 0.1 + 1.9

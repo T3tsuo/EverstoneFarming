@@ -5,17 +5,11 @@ import pydirectinput
 import random_breaks
 
 def go_to_nurse():
-    at_nurse = False
-    while at_nurse is False:
-        if pyautogui.locateOnScreen('location/at_nurse_desk.png', confidence=0.8) is not None:
-            pydirectinput.keyUp("up")
-            print("At Nurse")
-            at_nurse = True
-            # break
-            time.sleep(random_breaks.input_break())
-        else:
-            # go up until arrived at nurse
-            pydirectinput.keyDown("up")
+    pydirectinput.keyDown("up")
+    time.sleep(random_breaks.to_nurse())
+    pydirectinput.keyUp("up")
+    time.sleep(random_breaks.input_break())
+
 
 
 def heal_up():
@@ -93,13 +87,12 @@ def go_into_cave():
     pydirectinput.keyDown("up")
     time.sleep(random_breaks.into_cave())
     pydirectinput.keyUp("up")
-    print("Inside of Cave")
     time.sleep(random_breaks.inside_cave())
-    pydirectinput.press("right", pause=0.01)
+    print("Inside of Cave")
     time.sleep(random_breaks.paying_attention_break())
-    pydirectinput.keyDown("up")
-    time.sleep(random_breaks.adjust_to_stairs())
-    pydirectinput.keyUp("up")
+    pydirectinput.PAUSE = 0.01
+    pydirectinput.press("up")
+    pydirectinput.PAUSE = 0.1
     # break
     time.sleep(random_breaks.input_break())
 
