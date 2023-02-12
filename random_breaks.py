@@ -50,8 +50,8 @@ def south_of_city():
 
 
 def right_to_sailor():
-    # go towards sailor for 0.9 to 1.05 seconds
-    return random() * 0.15 + 0.9
+    # go towards sailor for 1.15 to 1.3 seconds
+    return random() * 0.15 + 1.15
 
 
 def paying_attention_break():

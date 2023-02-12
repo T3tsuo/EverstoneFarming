@@ -168,7 +168,7 @@ def fly_away():
                     # fly to city
                     pydirectinput.click(clicks=2)
                     left = True
-                    time.sleep(random_breaks.run_away_break())
+                    time.sleep(random_breaks.heal_up_break())
 
         else:
             # continue to leave the cave until you leave
