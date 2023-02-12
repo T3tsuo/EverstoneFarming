@@ -1,7 +1,7 @@
 # AllEyes2.0
 ## Where to start running the code:
-Start one step UP inside of Iron Island.
-As soon as you run the code, make sure you click on the game
+* Start one step UP inside of Iron Island.
+* As soon as you run the code, make sure you click on the game
 
 ## Pokemon Team Composition:
 * First pokemon has frisk ability.
