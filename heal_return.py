@@ -1,5 +1,4 @@
 import time
-import pyautogui
 import pydirectinput
 
 import random_breaks
