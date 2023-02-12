@@ -54,8 +54,8 @@ def go_to_sailor():
     time.sleep(random_breaks.right_to_sailor())
     pydirectinput.keyUp("right")
     print("At the Sailor")
-    # break
-    time.sleep(random_breaks.input_break())
+    # break 1.5 - 2 seconds
+    time.sleep(random_breaks.inside_cave())
 
 
 def travel_to_island():
