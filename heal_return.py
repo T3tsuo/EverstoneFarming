@@ -64,7 +64,7 @@ def travel_to_island():
     pydirectinput.keyUp("z")
     print("Traveled")
     # break
-    time.sleep(random_breaks.input_break())
+    time.sleep(random_breaks.paying_attention_break())
 
 
 def go_into_cave():
