@@ -1,11 +1,15 @@
+import sys
+
 import grab_items
 import heal_return
 
 # this program grabs items and then fly's to go restore pokemon pp
 
-x = int(input("Number of times to use sweet scent: "))
-# switch to second window which should be the game
-grab_items.switch_tabs()
-while True:
-    grab_items.run(x)
-    heal_return.run()
+try:
+    # try to grab input from command line
+    x = int(sys.argv[1])
+except IndexError:
+    # else then ask for amount of times user can use sweet scent before going to pokecenter
+    x = int("Number of times to use sweet scent: ")
+grab_items.run(x)
+heal_return.run()

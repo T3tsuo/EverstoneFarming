@@ -1,1 +1,3 @@
-python main.py
+:x
+python main.py 6
+goto x
