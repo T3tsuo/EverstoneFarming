@@ -2,6 +2,8 @@
 ## Where to start running the code:
 * Start one step UP inside of Iron Island.
 * As soon as you run the code, make sure you click on the game
+* The code will ask you to input the amount of times you can use sweet scent:
+    * Or you can enter the input as an argument in the Command-Line or Bat file
 
 ## Pokemon Team Composition:
 * First pokemon has frisk ability.
