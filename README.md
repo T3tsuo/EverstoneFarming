@@ -1,4 +1,9 @@
 # AllEyes2.0
+
+## Python Configuration:
+* Tested with Python 3.10.8
+* run: pip install -r requirements.txt
+
 ## Where to start running the code:
 * Start one step UP inside of Iron Island.
 * As soon as you run the code, make sure you click on the game
