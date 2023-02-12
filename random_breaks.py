@@ -55,8 +55,8 @@ def right_to_sailor():
 
 
 def paying_attention_break():
-    # timer between 0.20 seconds to 0.45 seconds
-    return random() * 0.25 + 0.20
+    # timer between 0.25 seconds to 0.50 seconds
+    return random() * 0.25 + 0.25
 
 
 def attack_break():
