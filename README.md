@@ -18,7 +18,6 @@
 ## Rest of the team suggestion:
 * Best if as many pokemons as you can uses exp. shares to clear battle logs quicker
 by gaining exp so program doesn't read old battle logs.
-    * Using Kricketot at least level 17 is ideal because it stop learning new moves.
 
 ## Key Slots:
 * Bike in 1st key slot.
