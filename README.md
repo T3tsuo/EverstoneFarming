@@ -5,6 +5,7 @@
 * run: pip install -r requirements.txt
 
 ## Where to start running the code:
+* Make sure the last pokecenter you've been in is the one at Canalave City
 * Start one step UP inside of Iron Island.
 * As soon as you run the code, make sure you click on the game
 * The code will ask you to input the amount of times you can use sweet scent:
