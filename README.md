@@ -15,10 +15,6 @@
 * Second pokemon (Quagsire) has thief in first slot and surf in second slot.
 * Pokemon with sweet scent must be in your party.
 
-## Rest of the team suggestion:
-* Best if as many pokemons as you can uses exp. shares to clear battle logs quicker
-by gaining exp so program doesn't read old battle logs.
-
 ## Key Slots:
 * Bike in 1st key slot.
 * Sweet scent in 4th key slot.
