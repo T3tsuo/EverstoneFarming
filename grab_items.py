@@ -21,15 +21,17 @@ def change_pokemon():
     print("Change Pokemon")
     time.sleep(random_breaks.paying_attention_break())
     time.sleep(random_breaks.attack_break())
-    print("time to attack")
+    print("Time To Attack")
 
 
 def thief():
+    # boolean if horde is dead or not
+    is_dead = False
     stole_item = False
     # counter to keep track of which pokemon is currently selected
     select_pokemon = 0
-    # while the item is not found and we still have not attacked all 5 pokemons
-    while stole_item is False and select_pokemon < 5:
+    # while the item is not found, and we still have not attacked all 5 pokemons
+    while stole_item is False and select_pokemon < 5 and is_dead is False:
         # press fight
         pydirectinput.press('z')
         print("Fight")
@@ -58,6 +60,10 @@ def thief():
                 print("Flinched")
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
                 time.sleep(end_time - time.time())
+                break
+            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
+                print("Horde is dead")
+                is_dead = True
                 break
         if not flinched:
             select_pokemon += 1
