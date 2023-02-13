@@ -13,12 +13,13 @@
 ## Pokemon Team Composition:
 * First pokemon has frisk ability.
 * Second pokemon (Quagsire) has thief in first slot and surf in second slot.
-* Pokemon with sweet scent must be in your party.
+* Pokemon with Sweet Scent must be in your party.
+* Pokemon with Teleport must be in your party
 
 ## Key Slots:
 * Bike in 1st key slot.
 * Sweet scent in 4th key slot.
-* Fly in 5th key slot.
+* Teleport in 5th key slot.
 
 ## Game Configuration:
 * Make battle log as minimized as possible and lock the chat.
