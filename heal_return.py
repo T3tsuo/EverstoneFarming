@@ -3,13 +3,6 @@ import pydirectinput
 
 import random_breaks
 
-def go_to_nurse():
-    print("Going to Nurse")
-    pydirectinput.keyDown("up")
-    time.sleep(random_breaks.to_nurse())
-    pydirectinput.keyUp("up")
-    time.sleep(random_breaks.input_break())
-
 
 
 def heal_up():
@@ -98,7 +91,6 @@ def go_into_cave():
 
 
 def run():
-    go_to_nurse()
     heal_up()
     leave_building()
     go_to_sailor()

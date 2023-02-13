@@ -151,32 +151,20 @@ def run_away():
     time.sleep(random_breaks.run_away_break())
 
 
-def fly_away():
+def teleport_away():
     left = False
     while left is False:
         # once left the cave
         if pyautogui.locateOnScreen('location/iron_island_entrance.png', confidence=0.8) is not None:
             # wait for screen to change
             time.sleep(random_breaks.paying_attention_break())
-            # press fly
+            # press teleport
             pydirectinput.press('5')
-            print("Fly")
+            print("Teleport")
+            left = True
             time.sleep(random_breaks.paying_attention_break())
-            while left is False:
-                # find the region where canalave city is near
-                if pyautogui.locateOnScreen('location/near_canalave_city.png', confidence=0.8):
-                    # grab the region where canalave city is near
-                    location = pyautogui.locateOnScreen('location/'
-                                                        'near_canalave_city.png', confidence=0.8)
-                    # grab the exact region
-                    location = pyautogui.locateOnScreen('location/exact_canalave_city.png'
-                                                        , region=location, confidence=0.8)
-                    pyautogui.moveTo(location.left + random() * location.width
-                                     , location.top + random() * location.height)
-                    # fly to city
-                    pydirectinput.click(clicks=2)
-                    left = True
-                    time.sleep(random_breaks.heal_up_break())
+            time.sleep(random_breaks.to_nurse())
+
 
         else:
             # continue to leave the cave until you leave
@@ -263,4 +251,4 @@ def run(x):
             # if item is stolen then take it off of your pokemon
             take_item()
     # when all of sweet scent is used then leave to pokecenter
-    fly_away()
+    teleport_away()

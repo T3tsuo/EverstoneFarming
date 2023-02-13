@@ -10,6 +10,6 @@ try:
     x = int(sys.argv[1])
 except IndexError:
     # else then ask for amount of times user can use sweet scent before going to pokecenter
-    x = int("Number of times to use sweet scent: ")
+    x = int(input("Number of times to use sweet scent: "))
 grab_items.run(x)
 heal_return.run()
