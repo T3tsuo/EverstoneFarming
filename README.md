@@ -21,7 +21,7 @@ by gaining exp so program doesn't read old battle logs.
 
 ## Key Slots:
 * Bike in 1st key slot.
-* Sweet scent in fourth key slot.
+* Sweet scent in 4th key slot.
 * Fly in 5th key slot.
 
 ## Game Configuration:
