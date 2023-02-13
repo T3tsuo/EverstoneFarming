@@ -152,6 +152,10 @@ def run_away():
 
 
 def teleport_away():
+    # use dig
+    pydirectinput.press("6")
+    print("Dig")
+    time.sleep(random_breaks.paying_attention_break())
     left = False
     while left is False:
         # once left the cave
@@ -164,11 +168,6 @@ def teleport_away():
             left = True
             time.sleep(random_breaks.paying_attention_break())
             time.sleep(random_breaks.to_nurse())
-
-
-        else:
-            # continue to leave the cave until you leave
-            pydirectinput.press('down')
 
 
 def in_battle():
