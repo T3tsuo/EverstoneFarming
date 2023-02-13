@@ -1,9 +1,12 @@
 import sys
+import os
 
 import grab_items
 import heal_return
 
 # this program grabs items and then fly's to go restore pokemon pp
+
+os.environ['REQUESTS_CA_BUNDLE'] = "certifi/cacert.pem"
 
 try:
     # try to grab input from command line

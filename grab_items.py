@@ -2,8 +2,32 @@ import time
 import pyautogui
 import pydirectinput
 from random import random
+from PIL import Image
+import requests
 
 import random_breaks
+
+
+stole_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                             "T3tsuo/AllEyes2.0/main/battle_logs/stole.png", stream=True).raw)
+
+flinched_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/battle_logs/flinched.png", stream=True).raw)
+
+quagsire_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/location/quagsire.png", stream=True).raw)
+
+iron_island_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/location/iron_island_entrance.png", stream=True).raw)
+
+frisked_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/battle_logs/frisked.png", stream=True).raw)
+
+everstone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/location/take_everstone.png", stream=True).raw)
+
+hard_stone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/location/take_hard_stone.png", stream=True).raw)
 
 
 def change_pokemon():
@@ -49,19 +73,19 @@ def thief():
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if item is found
-            if pyautogui.locateOnScreen('battle_logs/stole.png', confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(stole_png, confidence=0.8) is not None:
                 stole_item = True
                 print("Stole item")
                 # if the item is found early then wait the remaining time before exiting
                 time.sleep(end_time - time.time())
                 break
-            if pyautogui.locateOnScreen('battle_logs/flinched.png', confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(flinched_png, confidence=0.8) is not None:
                 flinched = True
                 print("Flinched")
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
                 time.sleep(end_time - time.time())
                 break
-            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is not None:
                 print("Horde is dead")
                 is_dead = True
                 break
@@ -134,7 +158,7 @@ def kill_all():
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if battle is done
-            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is not None:
                 # then they are dead
                 dead = True
                 break
@@ -159,7 +183,7 @@ def teleport_away():
     left = False
     while left is False:
         # once left the cave
-        if pyautogui.locateOnScreen('location/iron_island_entrance.png', confidence=0.8) is not None:
+        if pyautogui.locateOnScreen(iron_island_png, confidence=0.8) is not None:
             # wait for screen to change
             time.sleep(random_breaks.paying_attention_break())
             # press teleport
@@ -172,14 +196,14 @@ def teleport_away():
 
 def in_battle():
     while True:
-        if pyautogui.locateOnScreen('battle_logs/frisked.png', confidence=0.8) is not None:
+        if pyautogui.locateOnScreen(frisked_png, confidence=0.8) is not None:
             print("Found item")
             # change pokemon
             change_pokemon()
             # switch to attacking stage
             thief()
             # switch to killing all the pokemons if battle isn't done
-            if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is None:
+            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is None:
                 print("Kill All")
                 kill_all()
             print("Battle End")
@@ -192,9 +216,9 @@ def in_battle():
 def take_item():
     item_taken = False
     while item_taken is False:
-        if pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8) is not None:
+        if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is not None:
             # grab location of image
-            location = pyautogui.locateOnScreen('location/quagsire.png', confidence=0.8)
+            location = pyautogui.locateOnScreen(quagsire_png, confidence=0.8)
             # click randomly on the box
             pyautogui.moveTo(location.left + random() * location.width, location.top + random() * location.height)
             pydirectinput.click()
@@ -203,8 +227,8 @@ def take_item():
             time.sleep(random_breaks.paying_attention_break())
             while item_taken is False:
                 # do the same thing for everstone
-                if pyautogui.locateOnScreen('location/take_everstone.png', confidence=0.8):
-                    location = pyautogui.locateOnScreen('location/take_everstone.png',
+                if pyautogui.locateOnScreen(everstone_png, confidence=0.8):
+                    location = pyautogui.locateOnScreen(everstone_png,
                                                         confidence=0.8)
                     print("Taking Everstone")
                     pyautogui.moveTo(location.left + random() * location.width,
@@ -212,9 +236,9 @@ def take_item():
                     pydirectinput.click()
                     item_taken = True
                     time.sleep(random_breaks.paying_attention_break())
-                if pyautogui.locateOnScreen('location/take_hard_stone.png', confidence=0.8):
+                if pyautogui.locateOnScreen(hard_stone_png, confidence=0.8):
                     # same thing for hard stone
-                    location = pyautogui.locateOnScreen('location/take_hard_stone.png',
+                    location = pyautogui.locateOnScreen(hard_stone_png,
                                                         confidence=0.8)
                     print("Taking Hard Stone")
                     pyautogui.moveTo(location.left + random() * location.width,
