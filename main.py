@@ -11,5 +11,6 @@ try:
 except IndexError:
     # else then ask for amount of times user can use sweet scent before going to pokecenter
     x = int(input("Number of times to use sweet scent: "))
-grab_items.run(x)
-heal_return.run()
+while True:
+    grab_items.run(x)
+    heal_return.run()
