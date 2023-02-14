@@ -6,8 +6,7 @@
 
 ## Where to start running the code:
 * Make sure your character is running and not walking
-* Make sure the last pokecenter you've been in is the one at Canalave City
-* Start at the nurse in the pokecenter
+* Start at the nurse in the pokecenter at Canalave City
 * The code will ask you to input the amount of times you can use sweet scent and how long (in seconds) you want the code to run for:
     * Or you can enter the input as an argument in the Command-Line or Bat file
 * As soon as you input the data, make sure you click on the game
