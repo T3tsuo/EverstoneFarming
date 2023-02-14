@@ -25,6 +25,7 @@ end_time = time.time() + run_code_time
 while end_time > time.time():
     heal_return.run()
     grab_items.run(x)
+    heal_return.heal_up()
     if end_time > time.time():
         print(str(round(time.time() / end_time * 100)) + "% Done")
     else:

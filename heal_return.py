@@ -91,7 +91,6 @@ def go_into_cave():
 
 
 def run():
-    heal_up()
     leave_building()
     go_to_sailor()
     travel_to_island()
