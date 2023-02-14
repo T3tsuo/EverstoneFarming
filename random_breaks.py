@@ -31,8 +31,8 @@ def wait_to_iron_island():
 
 
 def leave_building():
-    # 1.9 seconds to 2.1 seconds to leave building
-    return random() * 0.1 + 1.9
+    # 1.8 seconds to 1.9 seconds to leave building
+    return random() * 0.1 + 1.8
 
 
 def to_nurse():
