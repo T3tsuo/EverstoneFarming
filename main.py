@@ -19,6 +19,8 @@ except IndexError:
     x = int(input("Number of times to use sweet scent: "))
     # ask how long the code should run in seconds
     run_code_time = int(input("How long (in seconds) do you want the code to run for: "))
+# this is when the code started to run
+start_time = time.time()
 # this is when the code should stop
 end_time = time.time() + run_code_time
 # while we have not reached the end time, keep on going
@@ -27,6 +29,6 @@ while end_time > time.time():
     grab_items.run(x)
     heal_return.heal_up()
     if end_time > time.time():
-        print(str(round(time.time() / end_time * 100)) + "% Done")
+        print(str(round((time.time() - start_time) / (end_time - start_time) * 100)) + "% Done")
     else:
         print("100% Done")
