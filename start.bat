@@ -1,1 +1,1 @@
-python main.py 6
+python main.py 6 3600

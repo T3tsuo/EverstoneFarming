@@ -23,5 +23,6 @@ except IndexError:
 end_time = time.time() + run_code_time
 # while we have not reached the end time, keep on going
 while end_time > time.time():
+    print("Time left: " + str(end_time - time.time()) + " seconds")
     grab_items.run(x)
     heal_return.run()
