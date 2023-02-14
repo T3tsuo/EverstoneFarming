@@ -5,6 +5,7 @@
 * run: pip install -r requirements.txt
 
 ## Where to start running the code:
+* Make sure your character is running and not walking
 * Make sure the last pokecenter you've been in is the one at Canalave City
 * Start at the nurse in the pokecenter
 * The code will ask you to input the amount of times you can use sweet scent and how long (in seconds) you want the code to run for:
