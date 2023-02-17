@@ -1,4 +1,4 @@
-# AllEyes2.0
+# Farming Everstones (Sinnoh)
 
 ## Python Configuration:
 * Tested with Python 3.10.8
