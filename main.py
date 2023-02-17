@@ -19,6 +19,7 @@ except IndexError:
     x = int(input("Number of times to use sweet scent: "))
     # ask how long the code should run in seconds
     run_code_time = int(input("How long (in seconds) do you want the code to run for: "))
+time.sleep(2)
 # this is when the code started to run
 start_time = time.time()
 # this is when the code should stop
