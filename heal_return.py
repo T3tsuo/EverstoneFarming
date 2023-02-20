@@ -7,6 +7,7 @@ import random_breaks
 
 def heal_up():
     # talk through dialogue
+    print("Talking to Nurse")
     pydirectinput.keyDown("z")
     time.sleep(random_breaks.heal_up_break())
     pydirectinput.keyUp("z")

@@ -191,6 +191,7 @@ def teleport_away():
             print("Teleport")
             left = True
             time.sleep(random_breaks.paying_attention_break())
+            print("At Nurse")
             time.sleep(random_breaks.to_nurse())
 
 
