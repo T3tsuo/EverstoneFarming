@@ -1,8 +1,15 @@
 import time
+
+import pyautogui
 import pydirectinput
+import requests
+from PIL import Image
 
 import random_breaks
 
+
+outside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                           "T3tsuo/AllEyes2.0/main/location/outside_building.png", stream=True).raw)
 
 
 def heal_up():
@@ -21,8 +28,15 @@ def leave_building():
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
     print("Left building")
-    # wait 1.5 - 2 seconds
-    time.sleep(random_breaks.inside_cave())
+    # while cannot find outside, keep on waiting
+    is_outside = False
+    while is_outside is False:
+        # if image recognition detects that we left the building
+        if pyautogui.locateOnScreen(outside_building, confidence=0.8) is not None:
+            # then we are outside
+            is_outside = True
+        else:
+            time.sleep(0.5)
 
 
 def go_to_sailor():
