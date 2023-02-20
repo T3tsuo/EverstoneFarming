@@ -11,6 +11,9 @@ import random_breaks
 outside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                            "T3tsuo/AllEyes2.0/main/location/outside_building.png", stream=True).raw)
 
+at_island = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                    "T3tsuo/AllEyes2.0/main/location/at_island.png", stream=True).raw)
+
 
 def heal_up():
     # talk through dialogue
@@ -67,11 +70,15 @@ def go_to_sailor():
 
 def travel_to_island():
     pydirectinput.keyDown("z")
-    time.sleep(random_breaks.wait_to_iron_island())
-    pydirectinput.keyUp("z")
     print("Traveled")
-    # break
-    time.sleep(random_breaks.paying_attention_break())
+    # while cannot island, keep on talking
+    arrived = False
+    while arrived is False:
+        # if image recognition detects that we are at the island
+        if pyautogui.locateOnScreen(at_island, confidence=0.8) is not None:
+            # then we are at island
+            arrived = True
+            pydirectinput.keyUp("z")
 
 
 def go_into_cave():
