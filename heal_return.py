@@ -14,33 +14,8 @@ outside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
 at_island = Image.open(requests.get("https://raw.githubusercontent.com/"
                                     "T3tsuo/AllEyes2.0/main/location/at_island.png", stream=True).raw)
 
-inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                          "T3tsuo/AllEyes2.0/main/location/inside_building.png", stream=True).raw)
-
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
                                       "T3tsuo/AllEyes2.0/main/location/inside_cave.png", stream=True).raw)
-
-
-def heal_up():
-    at_nurse = False
-    # we are not at nurse yet
-    while at_nurse is False:
-        # once we are at the nurse
-        if pyautogui.locateOnScreen(inside_building, confidence=0.8) is not None:
-            # then set flag to true, so we can talk to the nurse
-            at_nurse = True
-            time.sleep(0.5)
-        else:
-            time.sleep(0.5)
-
-    # talk through dialogue
-    print("Talking to Nurse")
-    pydirectinput.keyDown("z")
-    time.sleep(random_breaks.heal_up_break())
-    pydirectinput.keyUp("z")
-    print("Healing Done")
-    # break
-    time.sleep(random_breaks.input_break())
 
 
 def leave_building():

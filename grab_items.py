@@ -29,6 +29,34 @@ everstone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
 hard_stone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
                                        "T3tsuo/AllEyes2.0/main/location/take_hard_stone.png", stream=True).raw)
 
+inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                          "T3tsuo/AllEyes2.0/main/location/inside_building.png", stream=True).raw)
+
+inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                      "T3tsuo/AllEyes2.0/main/location/inside_cave.png", stream=True).raw)
+
+
+def heal_up():
+    at_nurse = False
+    # we are not at nurse yet
+    while at_nurse is False:
+        # once we are at the nurse
+        if pyautogui.locateOnScreen(inside_building, confidence=0.8) is not None:
+            # then set flag to true, so we can talk to the nurse
+            at_nurse = True
+            time.sleep(0.5)
+        else:
+            time.sleep(0.5)
+
+    # talk through dialogue
+    print("Talking to Nurse")
+    pydirectinput.keyDown("z")
+    time.sleep(random_breaks.heal_up_break())
+    pydirectinput.keyUp("z")
+    print("Healing Done")
+    # break
+    time.sleep(random_breaks.input_break())
+
 
 def change_pokemon():
     # go to pokemon
@@ -85,7 +113,7 @@ def thief():
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
                 time.sleep(end_time - time.time())
                 break
-            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(inside_cave, confidence=0.8) is not None:
                 print("Horde is dead")
                 is_dead = True
                 break
@@ -158,7 +186,7 @@ def kill_all():
         end_time = time.time() + seconds
         while time.time() < end_time:
             # if battle is done
-            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is not None:
+            if pyautogui.locateOnScreen(inside_cave, confidence=0.8) is not None:
                 # then they are dead
                 dead = True
                 break
@@ -276,3 +304,5 @@ def run(x):
             take_item()
     # when all of sweet scent is used then leave to pokecenter
     teleport_away()
+    # then heal up
+    heal_up()
