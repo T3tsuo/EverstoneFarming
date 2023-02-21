@@ -40,8 +40,8 @@ def to_nurse():
     return random() * 0.1 + 3
 
 def left_of_city():
-    # go left for between 1.9 seconds to 2
-    return random() * 0.1 + 1.9
+    # go left for between 1.9 seconds to 1.95
+    return random() * 0.05 + 1.9
 
 
 def south_of_city():
