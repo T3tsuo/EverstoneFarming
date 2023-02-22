@@ -16,8 +16,8 @@ def below_cave():
 
 
 def adjust_to_stairs():
-    # move on tile down takes 0.02 seconds to 0.06
-    return random() * 0.04 + 0.02
+    # move on tile down takes 0.02 seconds to 0.05
+    return random() * 0.03 + 0.02
 
 
 def before_stairs():
