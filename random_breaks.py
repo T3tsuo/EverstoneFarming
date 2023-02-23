@@ -75,8 +75,8 @@ def run_away_break():
 
 
 def heal_up_break():
-    # dialogue of nurse healing break from 7 seconds to 12 seconds
-    return random() * 5 + 7
+    # dialogue of nurse healing break from 9 seconds to 14 seconds
+    return random() * 5 + 9
 
 
 def input_break():
