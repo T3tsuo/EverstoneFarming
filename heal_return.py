@@ -63,7 +63,6 @@ def go_to_sailor():
 
 def travel_to_island():
     pydirectinput.keyDown("z")
-    print("Traveled")
     # while cannot island, keep on talking
     arrived = False
     while arrived is False:
@@ -73,6 +72,7 @@ def travel_to_island():
             arrived = True
             pydirectinput.keyUp("z")
             time.sleep(0.5)
+            print("Traveled")
 
 
 def go_into_cave():
