@@ -80,13 +80,10 @@ def change_pokemon():
 
 
 def thief():
-    # boolean if horde is dead or not
-    is_dead = False
-    stole_item = False
     # counter to keep track of which pokemon is currently selected
     select_pokemon = 0
     # while the item is not found, and we still have not attacked all 5 pokemons
-    while stole_item is False and select_pokemon < 5 and is_dead is False:
+    while select_pokemon < 5:
         # press fight
         pydirectinput.press('z')
         print("Fight")
@@ -105,23 +102,23 @@ def thief():
         while time.time() < end_time:
             # if item is found
             if pyautogui.locateOnScreen(stole_png, confidence=0.8) is not None:
-                stole_item = True
                 print("Stole item")
                 # if the item is found early then wait the remaining time before exiting
                 time.sleep(end_time - time.time())
-                break
+                # return that item was found
+                return True
             if pyautogui.locateOnScreen(flinched_png, confidence=0.8) is not None:
                 flinched = True
                 print("Flinched")
                 # if the pokemon flinched then wait the remaining time of the turn before exiting
                 time.sleep(end_time - time.time())
-                break
             if pyautogui.locateOnScreen(inside_cave, confidence=0.8) is not None:
                 print("Horde is dead")
-                is_dead = True
-                break
+                # return that item was not found
+                return False
         if not flinched:
             select_pokemon += 1
+    return False
 
 
 def which_to_attack(n):
@@ -233,16 +230,17 @@ def in_battle():
             # change pokemon
             change_pokemon()
             # switch to attacking stage
-            thief()
+            took_item = thief()
             # switch to killing all the pokemons if battle isn't done
             if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is None:
                 print("Kill All")
                 kill_all()
             print("Battle End")
-            return True
+            # found item but return if we took the item
+            return True, took_item
         else:
-            # did not find any items on pokemon
-            return False
+            # did not find any items on pokemon so did not take it
+            return False, False
 
 
 def take_item():
@@ -306,13 +304,13 @@ def run(x):
         pydirectinput.press('4')
         print("Sweet Scent")
         time.sleep(random_breaks.starting_battle_break())
-        # check if item was found and if it was it will try to get it
-        found_item = in_battle()
-        if not found_item:
+        # check if item was found and if it was it will try to get it and return if it did or didn't
+        found_item, took_item = in_battle()
+        if not found_item and not took_item:
             print("Not found")
             # run away from battle
             run_away()
-        else:
+        elif found_item and took_item:
             # if item is stolen then take it off of your pokemon
             take_item()
     # when all of sweet scent is used then leave to pokecenter
