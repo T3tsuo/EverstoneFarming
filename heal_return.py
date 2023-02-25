@@ -83,9 +83,11 @@ def go_into_cave():
     # break
     time.sleep(random_breaks.input_break())
     # adjust to go upstairs
-    pydirectinput.keyDown("down")
-    time.sleep(random_breaks.adjust_to_stairs())
-    pydirectinput.keyUp("down")
+    pydirectinput.PAUSE = 0.05
+    pydirectinput.press("down")
+    time.sleep(random_breaks.input_break())
+    pydirectinput.press("down")
+    pydirectinput.PAUSE = 0.1
     # break
     time.sleep(random_breaks.input_break())
     pydirectinput.keyDown("right")
