@@ -29,6 +29,9 @@ everstone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
 hard_stone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
                                        "T3tsuo/AllEyes2.0/main/location/take_hard_stone.png", stream=True).raw)
 
+metal_coat = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/AllEyes2.0/main/location/take_metal_coat.png", stream=True).raw)
+
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                           "T3tsuo/AllEyes2.0/main/location/inside_building.png", stream=True).raw)
 
@@ -270,6 +273,16 @@ def take_item():
                     location = pyautogui.locateOnScreen(hard_stone_png,
                                                         confidence=0.8)
                     print("Taking Hard Stone")
+                    pyautogui.moveTo(location.left + random() * location.width,
+                                     location.top + random() * location.height)
+                    pydirectinput.click()
+                    item_taken = True
+                    time.sleep(random_breaks.paying_attention_break())
+                if pyautogui.locateOnScreen(metal_coat, confidence=0.8):
+                    # same thing for hard stone
+                    location = pyautogui.locateOnScreen(metal_coat,
+                                                        confidence=0.8)
+                    print("Taking Metal Coat")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
                     pydirectinput.click()
