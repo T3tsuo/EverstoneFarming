@@ -83,7 +83,7 @@ def go_into_cave():
     # break
     time.sleep(random_breaks.input_break())
     # adjust to go upstairs
-    pydirectinput.PAUSE = 0.01
+    pydirectinput.PAUSE = 0.03
     pydirectinput.press("down")
     time.sleep(random_breaks.input_break())
     pydirectinput.press("down")
@@ -109,7 +109,7 @@ def go_into_cave():
             time.sleep(0.5)
     print("Inside of Cave")
     time.sleep(random_breaks.paying_attention_break())
-    pydirectinput.PAUSE = 0.01
+    pydirectinput.PAUSE = 0.03
     pydirectinput.press("up")
     pydirectinput.PAUSE = 0.1
     # break
