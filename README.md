@@ -11,7 +11,7 @@
     * Or you can enter the input as an argument in the Command-Line or Bat file.
         * ex: python main.py 6 7200
         * 6 is the amount of times to use sweet scent before going to the pokecenter.
-        * 7200 is the amount of seconds, which 7200 seconds is 2 hours long.
+        * 7200 is the amount of seconds, so the program will run for 7200 seconds (2 hours long).
 * As soon as you input the data, make sure you click on the game.
 
 ## Pokemon Team Composition:
