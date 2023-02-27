@@ -298,7 +298,6 @@ def switch_tabs():
 
 def run(x):
     for i in range(x):
-        # wait for program to switch to game window
         time.sleep(random_breaks.run_away_break())
         # use sweet scent
         pydirectinput.press('4')
