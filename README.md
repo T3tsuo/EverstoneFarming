@@ -30,7 +30,7 @@
 ## Game Configuration:
 * Make battle log as minimized as possible and lock the chat.
 * Best if battle log is not empty (at least 1 random encounter).
-* Ex: Set window size: 765 x 534 (2 battle logs only and hide your team on the right during battle).
+* Set window size: 765 x 534 (2 battle logs only and hide your team on the right during battle).
     * You can change this in the main directory of pokemmo:
         * PokeMMO/config/main.properties client.graphics.width=765
         * PokeMMO/config/main.properties client.graphics.height=534
