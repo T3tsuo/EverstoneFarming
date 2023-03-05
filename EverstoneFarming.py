@@ -4,6 +4,7 @@ import time
 
 import grab_items
 import heal_return
+import time_to_seconds
 
 # this program grabs items and then fly's to go restore pokemon pp
 
@@ -13,12 +14,14 @@ try:
     # try to grab input from command line for amount of sweet scent
     x = int(sys.argv[1])
     # try to grab how many seconds to run the code
-    run_code_time = int(sys.argv[2])
+    run_code_time = time_to_seconds.sum_seconds(sys.argv[2])
 except IndexError:
     # else then ask for amount of times user can use sweet scent before going to pokecenter
     x = int(input("Number of times to use sweet scent: "))
-    # ask how long the code should run in seconds
-    run_code_time = int(input("How long (in seconds) do you want the code to run for: "))
+    # ask how long the code should run
+    print("Time format: hours.minutes\n2.35 = 2 hours and 35 minutes")
+    run_code_time = time_to_seconds.sum_seconds(input("How long do you want the code to run for: "))
+print("Running for " + str(run_code_time) + " seconds")
 time.sleep(2)
 # this is when the code started to run
 start_time = time.time()
