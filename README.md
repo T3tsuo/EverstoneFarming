@@ -7,11 +7,11 @@
 ## Where to start running the code:
 * Make sure your character is running and not walking.
 * Start at the nurse in the pokecenter at Canalave City.
-* The code will ask you to input the amount of times you can use sweet scent and how long (in seconds) you want the code to run for:
+* The code will ask you to input the amount of times you can use sweet scent and how long you want the code to run for:
     * Or you can enter the input as an argument in the Command-Line or Bat file.
-        * ex: python main.py 6 7200
+        * ex: python main.py 6 2.30
         * 6 is the amount of times to use sweet scent before going to the pokecenter.
-        * 7200 is the amount of seconds, so the program will run for 7200 seconds (2 hours long).
+        * 2.30 is the amount of hours.minutes, so the program will run for 2 hours and 30 minutes.
 * As soon as you input the data, make sure you click on the game.
 
 ## Pokemon Team Composition:
