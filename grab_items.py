@@ -9,34 +9,34 @@ import random_breaks
 
 
 stole_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                             "T3tsuo/AllEyes2.0/main/battle_logs/stole.png", stream=True).raw)
+                             "T3tsuo/EverstoneFarming/main/battle_logs/stole.png", stream=True).raw)
 
 flinched_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/battle_logs/flinched.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/battle_logs/flinched.png", stream=True).raw)
 
 quagsire_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/location/quagsire.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/location/quagsire.png", stream=True).raw)
 
 iron_island_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/location/iron_island_entrance.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/location/iron_island_entrance.png", stream=True).raw)
 
 frisked_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/battle_logs/frisked.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/battle_logs/frisked.png", stream=True).raw)
 
 everstone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/location/take_everstone.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/location/take_everstone.png", stream=True).raw)
 
 hard_stone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/location/take_hard_stone.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/location/take_hard_stone.png", stream=True).raw)
 
 metal_coat = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                       "T3tsuo/AllEyes2.0/main/location/take_metal_coat.png", stream=True).raw)
+                                       "T3tsuo/EverstoneFarming/main/location/take_metal_coat.png", stream=True).raw)
 
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                          "T3tsuo/AllEyes2.0/main/location/inside_building.png", stream=True).raw)
+                                          "T3tsuo/EverstoneFarming/main/location/inside_building.png", stream=True).raw)
 
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                      "T3tsuo/AllEyes2.0/main/location/inside_cave.png", stream=True).raw)
+                                      "T3tsuo/EverstoneFarming/main/location/inside_cave.png", stream=True).raw)
 
 
 def heal_up():
@@ -286,14 +286,6 @@ def take_item():
                     pydirectinput.click()
                     item_taken = True
                     time.sleep(random_breaks.paying_attention_break())
-
-
-def switch_tabs():
-    pyautogui.keyDown('alt')
-    time.sleep(.2)
-    pyautogui.press('tab')
-    time.sleep(.2)
-    pyautogui.keyUp('alt')
 
 
 def run(x):

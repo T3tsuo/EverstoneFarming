@@ -9,13 +9,13 @@ import random_breaks
 
 
 outside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                           "T3tsuo/AllEyes2.0/main/location/outside_building.png", stream=True).raw)
+                                           "T3tsuo/EverstoneFarming/main/location/outside_building.png", stream=True).raw)
 
 at_island = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                    "T3tsuo/AllEyes2.0/main/location/at_island.png", stream=True).raw)
+                                    "T3tsuo/EverstoneFarming/main/location/at_island.png", stream=True).raw)
 
 inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
-                                      "T3tsuo/AllEyes2.0/main/location/inside_cave.png", stream=True).raw)
+                                      "T3tsuo/EverstoneFarming/main/location/inside_cave.png", stream=True).raw)
 
 
 def leave_building():
