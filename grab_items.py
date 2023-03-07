@@ -232,7 +232,7 @@ def in_battle():
             # switch to attacking stage
             took_item = thief()
             # switch to killing all the pokemons if battle isn't done
-            if pyautogui.locateOnScreen(quagsire_png, confidence=0.8) is None:
+            if pyautogui.locateOnScreen(inside_cave, confidence=0.8) is None:
                 print("Kill All")
                 kill_all()
             print("Battle End")
