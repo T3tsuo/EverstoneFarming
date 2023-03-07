@@ -9,7 +9,7 @@
 * Start at the nurse in the pokecenter at Canalave City.
 * The code will ask you to input the amount of times you can use sweet scent and how long you want the code to run for:
     * Or you can enter the input as an argument in the Command-Line or Bat file.
-        * ex: python main.py 6 2.30
+        * ex: EverstoneFarming.exe 6 2.30
         * 6 is the amount of times to use sweet scent before going to the pokecenter.
         * 2.30 is the amount of hours.minutes, so the program will run for 2 hours and 30 minutes.
 * As soon as you input the data, make sure you click on the game.
