@@ -32,6 +32,9 @@ hard_stone_png = Image.open(requests.get("https://raw.githubusercontent.com/"
 metal_coat = Image.open(requests.get("https://raw.githubusercontent.com/"
                                        "T3tsuo/EverstoneFarming/main/location/take_metal_coat.png", stream=True).raw)
 
+lagging_tail = Image.open(requests.get("https://raw.githubusercontent.com/"
+                                       "T3tsuo/EverstoneFarming/main/location/take_lagging_tail.png", stream=True).raw)
+
 inside_building = Image.open(requests.get("https://raw.githubusercontent.com/"
                                           "T3tsuo/EverstoneFarming/main/location/inside_building.png", stream=True).raw)
 
@@ -266,7 +269,7 @@ def take_item():
                     pydirectinput.click()
                     item_taken = True
                     time.sleep(random_breaks.paying_attention_break())
-                if pyautogui.locateOnScreen(hard_stone_png, confidence=0.8):
+                elif pyautogui.locateOnScreen(hard_stone_png, confidence=0.8):
                     # same thing for hard stone
                     location = pyautogui.locateOnScreen(hard_stone_png,
                                                         confidence=0.8)
@@ -276,11 +279,21 @@ def take_item():
                     pydirectinput.click()
                     item_taken = True
                     time.sleep(random_breaks.paying_attention_break())
-                if pyautogui.locateOnScreen(metal_coat, confidence=0.8):
-                    # same thing for hard stone
+                elif pyautogui.locateOnScreen(metal_coat, confidence=0.8):
+                    # same thing for metal coat
                     location = pyautogui.locateOnScreen(metal_coat,
                                                         confidence=0.8)
                     print("Taking Metal Coat")
+                    pyautogui.moveTo(location.left + random() * location.width,
+                                     location.top + random() * location.height)
+                    pydirectinput.click()
+                    item_taken = True
+                    time.sleep(random_breaks.paying_attention_break())
+                elif pyautogui.locateOnScreen(lagging_tail, confidence=0.8):
+                    # same thing for lagging tail
+                    location = pyautogui.locateOnScreen(lagging_tail,
+                                                        confidence=0.8)
+                    print("Taking Lagging Tail")
                     pyautogui.moveTo(location.left + random() * location.width,
                                      location.top + random() * location.height)
                     pydirectinput.click()
