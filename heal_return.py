@@ -28,11 +28,11 @@ def leave_building():
     while is_outside is False:
         # if image recognition detects that we left the building
         if pyautogui.locateOnScreen(outside_building, confidence=0.8) is not None:
-            print("locateonsecren")
             # then we are outside
             is_outside = True
             time.sleep(0.5)
         else:
+            print("locateonsecren")
             time.sleep(0.5)
 
 
