@@ -23,6 +23,7 @@ def leave_building():
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
     print(outside_building)
+    print("fail")
     print("Left building")
     # while cannot find outside, keep on waiting
     is_outside = False
