@@ -119,6 +119,7 @@ def go_into_cave():
 
 def run():
     leave_building()
+    print("between")
     go_to_sailor()
     travel_to_island()
     go_into_cave()
