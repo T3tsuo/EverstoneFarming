@@ -22,9 +22,9 @@ def leave_building():
     pydirectinput.keyDown("down")
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
+    print(outside_building)
     print("Left building")
     # while cannot find outside, keep on waiting
-    print(outside_building)
     is_outside = False
     while is_outside is False:
         # if image recognition detects that we left the building
@@ -33,7 +33,6 @@ def leave_building():
             is_outside = True
             time.sleep(0.5)
         else:
-            print("locateonsecren")
             time.sleep(0.5)
 
 
