@@ -23,11 +23,11 @@ def leave_building():
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")
     print(outside_building)
-    print("fail no confidence v2", pyautogui.locateOnScreen(outside_building))
     print("Left building")
     # while cannot find outside, keep on waiting
     is_outside = False
     while is_outside is False:
+        print("while loop", pyautogui.locateOnScreen(outside_building))
         # if image recognition detects that we left the building
         if pyautogui.locateOnScreen(outside_building) is not None:
             # then we are outside
