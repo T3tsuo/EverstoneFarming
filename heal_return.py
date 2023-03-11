@@ -19,6 +19,7 @@ inside_cave = Image.open(requests.get("https://raw.githubusercontent.com/"
 
 
 def leave_building():
+    print("leavingBuilding")
     pydirectinput.keyDown("down")
     time.sleep(random_breaks.leave_building())
     pydirectinput.keyUp("down")

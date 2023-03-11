@@ -1,5 +1,4 @@
 import sys
-import os
 import time
 
 import grab_items
@@ -26,7 +25,6 @@ end_time = time.time() + run_code_time
 # while we have not reached the end time, keep on going
 while end_time > time.time():
     heal_return.run()
-    print("testinghttpimport")
     grab_items.run(x)
     if end_time > time.time():
         print(str(round((time.time() - start_time) / (end_time - start_time) * 100)) + "% Done")
