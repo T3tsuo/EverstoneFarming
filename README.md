@@ -1,7 +1,7 @@
 # Farming Everstones (Sinnoh)
 
 ## Python Configuration:
-* Tested with Python 3.10.8
+* Tested with Python 3.11.2
 * run: pip install -r requirements.txt
 
 ## Where to start running the code:
