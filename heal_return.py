@@ -24,6 +24,7 @@ def leave_building():
     pydirectinput.keyUp("down")
     print("Left building")
     # while cannot find outside, keep on waiting
+    print(outside_building)
     is_outside = False
     while is_outside is False:
         # if image recognition detects that we left the building
@@ -119,7 +120,6 @@ def go_into_cave():
 
 def run():
     leave_building()
-    print("between")
     go_to_sailor()
     travel_to_island()
     go_into_cave()
