@@ -26,9 +26,9 @@ def leave_building():
     # while cannot find outside, keep on waiting
     is_outside = False
     while is_outside is False:
-        print("hey")
         # if image recognition detects that we left the building
         if pyautogui.locateOnScreen(outside_building, confidence=0.8) is not None:
+            print("locateonsecren")
             # then we are outside
             is_outside = True
             time.sleep(0.5)
